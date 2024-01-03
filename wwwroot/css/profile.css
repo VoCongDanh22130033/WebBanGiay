@@ -1,0 +1,137 @@
+﻿:root {
+    --main-bg-color: #efefef;
+    --main-text-color: #004dda;
+    --second-text-color: #bbbec5;
+    --second-bg-color: #c1efde;
+}
+
+.primary-text {
+    color: var(--main-text-color);
+}
+
+.second-text {
+    color: var(--second-text-color);
+}
+
+.primary-bg {
+    background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+    background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+    border-radius: 100%;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+}
+
+    #sidebar-wrapper .list-group {
+        width: 15rem;
+    }
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+.list-group-item {
+    border: none;
+    padding: 10px 20px;
+}
+
+.list-group-item.active {
+    background-color: #e9eceff0!important;
+    border-radius: 5px;
+    color: var(--main-text-color);
+    font-weight: 500;
+    border: none;
+}
+
+.avatar-profile {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.pic-avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.pic-avatar {
+    transition: filter 0.4s;
+}
+
+.pic-avatar:hover {
+    filter: brightness(80%);
+}
+
+.edit-icon:hover {
+    filter: brightness(80%);
+}
+
+.edit-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+}
+
+.image-container:hover .edit-icon {
+    display: block;
+}
+
+.image-container:hover .pic-avatar {
+    filter: brightness(80%); /* Giảm độ sáng khi hover trên .image-container */
+}
+
+.image-container:hover .edit-icon {
+    display: block; /* Hiện icon khi hover */
+    filter: brightness(80%); /* Giảm độ sáng khi hover trên icon chỉnh sửa */
+}
+
+
+@media (min-width: 768px) {
+    #menu-toggle {
+        display: none;
+    }
+
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}

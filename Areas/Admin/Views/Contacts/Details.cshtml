@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Contacts";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    var contact = ViewBag.Contact;
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/detailcontact.css">
+    <link rel="stylesheet" href="~/admin/js/plugins/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="~/admin/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="~/admin/js/plugins/flatpickr/flatpickr.min.css">
+}
+
+
+
+<div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed">
+
+    <main id="main-container">
+        <!-- Page Content -->
+        <div class="row g-0 flex-md-grow-1">
+            <div class="col-md-8 col-lg-7 col-xl-9 bg-body-dark">
+                <div class="block-header block-header-default">
+                    <a class="btn btn-alt-secondary" asp-action="Index">
+                        <i class="fa fa-arrow-left me-1"></i> Back
+                    </a>
+                    <div class="block-options">
+                            <div class="form-check form-switch">
+                            @{
+                                var check = "";
+                                if (@contact.IsSeen == true)
+                                {
+                                    check = "checked";
+                                }
+                                else
+                                {
+                                    check = "";
+                                }
+                            }
+                            <input class="form-check-input" type="checkbox" disabled id="dm-post-edit-active" @check>                            
+                            <a class="btn btn-sm btn-alt-info btn-checkbox" asp-route-id="@contact.Id" asp-action="Read">Mark as read</a>
+                            <button type="button" data-id="@contact.Id" class="btn btn-sm btn-delete btn-delete btn-danger">Delete</button>
+                            </div>
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="content">
+                    <!-- Message -->
+                    <div class="block block-rounded">
+                        <div class="block-content block-content-sm block-content-full bg-body-light">
+                            <div class="d-flex py-3">
+                                <div class="flex-shrink-0 me-3 ms-2 overlay-container overlay-right">
+                                    <img class="img-avatar img-avatar48" src="~/img/avatar.jpg" alt="">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <a class="fw-semibold link-fx" href="be_pages_generic_profile.html">@contact.Name</a>
+                                            <div class="fs-sm text-muted">@contact.Email</div>
+                                        </div>
+                                        <div class="col-sm-5 d-sm-flex align-items-sm-center">
+                                            <div class="fs-sm text-muted text-sm-end w-100 mt-2 mt-sm-0">
+                                                <p class="mb-0">@contact.CreatedAt</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-content">
+                            <p>@contact.Message</p>
+                        </div>
+                    </div>
+                </div>
+               
+                </div>
+         
+            </div>
+    </main>
+
+</div>
+@section Scripts {
+    <script src="~/admin/js/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/admin/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/admin/js/plugins/flatpickr/flatpickr.min.js"></script>
+    <script src="~/admin/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/admin/js/plugins/jquery-validation/additional-methods.js"></script>
+    <script src="~/admin/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script>Dashmix.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-notify']);</script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/admin/js/pagination.js"></script>
+    <script src="~/admin/js/customer.js"></script>
+    <script src="~/admin/js/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        $(document).on("click", ".btn-delete", async function () {
+            let trid = $(this).data("id");
+            let result = await Swal.fire({
+                title: "Are you sure?",
+                text: "Would you like to delete this contact?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, I'm sure",
+                cancelButtonText: "Cannel"
+            });
+            
+            if (result.value) {
+                try {
+                    let response = await $.post(`/Admin/Contacts/Delete/${trid}`);
+                    $.ajax({
+                        type: 'POST',
+                        processData: false,
+                        contentType: false,
+                        success: function () {
+                            window.location.href = '/Admin/Blogs/Index';
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(error);
+                        }
+                    });
+                } catch (error) {
+                    console.error("Error:", error);
+                    Swal.fire("Lỗi !", "Deletion of the contact was not successful.", "error");
+                }
+            }
+           
+        });
+    </script>
+}

@@ -1,0 +1,398 @@
+﻿@{
+	var product = ViewBag.Product;
+	ViewData["Title"] = product.Name;
+	var checkReview = ViewBag.CheckReview;
+	var reviewStats = ViewBag.ReviewStats;
+}
+@section Styles {
+	<link href="~/css/product_page.css" rel="stylesheet">
+	<link href="~/css/leave_review.css" rel="stylesheet">
+	<link rel="stylesheet" href="~/admin/js/plugins/sweetalert2/sweetalert2.css">
+}
+
+<main>
+	<input id="product-id" value="@product.Id" hidden/>
+	    <div class="container margin_30">
+	        <div class="row">
+	            <div class="col-md-6">
+	                <div class="all">
+	                    <div class="slider">
+	                        <div class="owl-carousel owl-theme main">
+	                        </div>
+	                        <div class="left nonl"><i class="ti-angle-left"></i></div>
+	                        <div class="right"><i class="ti-angle-right"></i></div>
+	                    </div>
+	                    <div class="slider-two">
+	                        <div class="owl-carousel owl-theme thumbs">
+	                        </div>
+	                        <div class="left-t nonl-t"></div>
+	                        <div class="right-t"></div>
+	                    </div>
+	                </div>
+
+	            </div>
+	            <div class="col-md-6">
+	                <div class="breadcrumbs">
+	                    <ul>
+	                        <li><a href="#">Home</a></li>
+	                        <li><a href="#">Category</a></li>
+	                        <li>Page active</li>
+	                    </ul>
+	                </div>
+	                <!-- /page_header -->
+	                <div class="prod_info">
+	                    <h1>@product.Name</h1>
+	                    <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><em>4 reviews</em></span>
+	                    <div class="prod_options mt-2">
+						<p>Tình trạng: <span class="fw-semibold text-primary color-stock"></span></p>
+	                        <div class="row mb-2 variant-container">
+	                        </div>
+	                        <div class="row mb-2">
+	                            <label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong> - Size Guide <a href="#0" data-bs-toggle="modal" data-bs-target="#size-modal"><i class="ti-help-alt"></i></a></label>
+	                            <div class="col-xl-4 col-lg-5 col-md-6 col-6">
+	                                <div class="custom-select-form">
+	                                    <select class="wide" id="select-size">
+	                                        <option value="">36</option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Quantity</strong></label>
+	                            <div class="col-xl-4 col-lg-5 col-md-6 col-6">
+	                                <div class="numbers-row">
+									<input type="number" value="1" id="quantity_1" class="qty2" name="quantity_1" min="1">
+	                                </div>
+	                            </div>
+	                        </div>
+							
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-lg-5 col-md-6">
+							<div class="price_main">
+								@if (@product.PriceSale != 0)
+								{
+									var percent = 100 - (int)Math.Round((product.PriceSale / product.Price) * 100);
+									<span class="new_price product-price" data-price="@product.PriceSale">$@product.PriceSale</span>
+									<span class="percentage">-@percent %</span>
+									<span class="old_price">$@product.Price</span>
+								} else
+								{
+									<span class="new_price product-price" data-price="@product.Price">$@product.Price</span>
+								}
+							</div>
+	                        </div>
+	                        <div class="col-lg-4 col-md-6 btn-cart-container">
+	                            <div class="btn_add_to_cart"><a href="javascript:void(0);" class="btn_1">Add to Cart</a></div>
+	                        </div>
+	                    </div>
+	                </div>
+	        </div>
+	        <!-- /row -->
+	    </div>
+		</div>
+	    <!-- /container -->
+	    
+	    <div class="tabs_product">
+	        <div class="container">
+	            <ul class="nav nav-tabs" role="tablist">
+	                <li class="nav-item">
+	                    <a id="tab-A" href="#pane-A" class="nav-link active" data-bs-toggle="tab" role="tab">Description</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a id="tab-B" href="#pane-B" class="nav-link" data-bs-toggle="tab" role="tab">Reviews</a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	    <!-- /tabs_product -->
+	    <div class="tab_content_wrapper">
+	        <div class="container">
+	            <div class="tab-content" role="tablist">
+	                <div id="pane-A" class="card tab-pane fade active show" role="tabpanel" aria-labelledby="tab-A">
+	                    <div class="card-header" role="tab" id="heading-A">
+	                        <h5 class="mb-0">
+	                            <a class="collapsed" data-bs-toggle="collapse" href="#collapse-A" aria-expanded="false" aria-controls="collapse-A">
+	                                Description
+	                            </a>
+	                        </h5>
+	                    </div>
+	                    <div id="collapse-A" class="collapse" role="tabpanel" aria-labelledby="heading-A">
+	                        <div class="card-body">
+	                            <div class="row justify-content-between">
+	                                <div class="col-lg-12">
+	                                    <h3>Details</h3>
+										@Html.Raw(product.Description)
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <!-- /TAB A -->
+	                <div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+	                    <div class="card-header" role="tab" id="heading-B">
+	                        <h5 class="mb-0">
+	                            <a class="collapsed" data-bs-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
+	                                Reviews
+	                            </a>
+	                        </h5>
+	                    </div>
+	                    <div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
+	                        <div class="card-body">
+								<div class="container">
+								<div class="row mb-4">
+									<div class="col-lg-4">
+										<div id="detail_rating" class="p-4 border rounded bg-white">
+											<div class="text-center">
+												<div class="fs-3">
+													<strong class="text-warning">@ViewBag.AverageRating</strong>/<span>5</span>
+												</div>
+												<h6 class="text-center">Có @ViewBag.CountView lượt đánh giá</h6>
+											</div>
+											<div class="d-flex justify-content-between align-items-center">
+												<span class="rating me-3">
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+												</span>
+												<div class="progress flex-grow-1 mb-2">
+													<div class="progress-bar" role="progressbar" style="width: calc(@reviewStats.PercentOneStar)" aria-valuenow="@reviewStats.OneStar" aria-valuemin="0" aria-valuemax="@ViewBag.TotalRating">
+														@reviewStats.PercentOneStar
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between align-items-center">
+												<span class="rating me-3">
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+												</span>
+												<div class="progress flex-grow-1 mb-2">
+													<div class="progress-bar" role="progressbar" style="width: calc(@reviewStats.PercentTwoStar)" aria-valuenow="@reviewStats.TwoStar" aria-valuemin="0" aria-valuemax="@ViewBag.TotalRating">
+														@reviewStats.PercentTwoStar
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between align-items-center">
+												<span class="rating me-3">
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+												</span>
+												<div class="progress flex-grow-1 mb-2">
+													<div class="progress-bar" role="progressbar" style="width: calc(@reviewStats.PercentThreeStar)" aria-valuenow="@reviewStats.ThreeStar" aria-valuemin="0" aria-valuemax="@ViewBag.TotalRating">
+														@reviewStats.PercentThreeStar
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between align-items-center">
+												<span class="rating me-3">
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star"></i>
+												</span>
+												<div class="progress flex-grow-1 mb-2">
+													<div class="progress-bar" role="progressbar" style="width: calc(@reviewStats.PercentFourStar)" aria-valuenow="@reviewStats.FourStar" aria-valuemin="0" aria-valuemax="@ViewBag.TotalRating">
+														@reviewStats.PercentFourStar
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between align-items-center">
+												<span class="rating me-3">
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+													<i class="icon-star text-warning"></i>
+												</span>
+												<div class="progress flex-grow-1 mb-2">
+													<div class="progress-bar" role="progressbar" style="width: calc(@reviewStats.PercentFiveStar)" aria-valuenow="@reviewStats.FiveStar" aria-valuemin="0" aria-valuemax="@ViewBag.TotalRating">
+														@reviewStats.PercentFiveStar
+													</div>
+												</div>
+											</div>
+											@if (checkReview != 0)
+											{
+												<div class="d-flex justify-content-center">
+													<button id="testReview" class="btn btn-primary" data-bs-toggle="modal"
+															data-bs-target="#modal-add-review">
+														Review
+													</button>
+												</div>
+											}
+										</div>
+									</div>
+									<div class="col-lg-8">
+										<div class="border border-1 rounded">
+											<div class="p-3 d-flex bg-primary mb-1 justify-content-between rounded-top fs-6">
+												<div class="col-lg-6 text-white">
+													Đánh giá sản phẩm
+												</div>
+												<div class="d-flex col-md-6 justify-content-between">
+													<div class="text-white ml-4">
+														<i class="fa-solid fa-sort text-white me-2"></i>
+														Sắp xếp: Mới nhất
+													</div>
+													<div class="text-white">
+														<i class="fa-solid fa-filter text-white me-2"></i>
+														Lọc: Tất cả
+													</div>
+												</div>
+											</div>
+											<div id="list_comment" class="p-2">
+												@if (ViewBag.Reviews != null && ViewBag.Reviews.Count > 0)
+												{
+													foreach (var review in ViewBag.Reviews)
+													{
+														<div class="review_content">
+															<div class="clearfix add_bottom_10">
+																<span class="rating">
+																	@for (int i = 1; i <= review.Rating; i++)
+																	{
+																		<i class="icon-star"></i>
+																	}
+																	@for (int i = 1; i <= 5 - review.Rating; i++)
+																	{
+																		<i class="icon-star empty"></i>
+																	}
+																	<em>@review.Rating/5.0</em>
+																</span>
+																<em>Published @review.CreatedAt</em>
+															</div>
+															<div class="d-flex align-items-center">
+																<span style="font-size: 16px; font-weight: bold">@review.AppUser.FullName</span>
+																<img style="width: 18px; height: 18px; margin-left: 10px; margin-right: 5px" src="/img/buy_product.webp" alt="Đã mua hàng"> Đã mua hàng
+															</div>
+															<p>@review.Description</p>
+														</div>
+													}
+												}
+												else
+												{
+													<p>Chưa có lượt đánh giá nào</p>
+												}
+											</div>
+										</div>
+									</div>
+								</div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+		</div>
+
+	    <div class="container margin_60_35">
+	        <div class="main_title">
+	            <h2>Related</h2>
+	            <span>Products</span>
+	            <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+	        </div>
+	        <div class="owl-carousel owl-theme products_carousel">
+				@foreach (var item in ViewBag.Related)
+				{
+					<div class="item">
+						@await Component.InvokeAsync("ShoeCards", item)
+					</div>
+				}
+	        </div>
+	        <!-- /products_carousel -->
+	    </div>
+	    <!-- /container -->
+
+	    <div class="feat">
+			<div class="container">
+				<ul>
+					<li>
+						<div class="box">
+							<i class="ti-gift"></i>
+							<div class="justify-content-center">
+								<h3>Free Shipping</h3>
+								<p>For all oders over $99</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="box">
+							<i class="ti-wallet"></i>
+							<div class="justify-content-center">
+								<h3>Secure Payment</h3>
+								<p>100% secure payment</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="box">
+							<i class="ti-headphone-alt"></i>
+							<div class="justify-content-center">
+								<h3>24/7 Support</h3>
+								<p>Online top support</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--/feat-->
+</main>
+
+
+
+@if (checkReview != 0)
+{
+	<div style="margin-top: 70px" class="modal fade" id="modal-add-review" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddReview" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="border-radius: 8px!important; padding: 0px!important;">
+				<form id="form-review">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="modalAddReview">Add Review</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="rating_submit">
+							<div class="form-group">
+								<label class="d-block">Overall rating</label>
+								<span class="rating mb-0">
+									<input type="radio" class="rating-input" id="5_star" name="rating-input" value="5">
+									<label for="5_star" class="rating-star"></label>
+									<input type="radio" class="rating-input" id="4_star" name="rating-input" value="4">
+									<label for="4_star" class="rating-star"></label>
+									<input type="radio" class="rating-input" id="3_star" name="rating-input" value="3">
+									<label for="3_star" class="rating-star"></label>
+									<input type="radio" class="rating-input" id="2_star" name="rating-input" value="2">
+									<label for="2_star" class="rating-star"></label>
+									<input type="radio" class="rating-input" id="1_star" name="rating-input" value="1" checked>
+									<label for="1_star" class="rating-star"></label>
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Your review</label>
+							<textarea name="review" class="form-control" style="height: 180px;" placeholder="Write your review to help others learn about this online business"></textarea>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary" id="submit-review">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+}
+
+@section Scripts {
+	<script src="~/admin/js/plugins/sweetalert2/sweetalert2.min.js"></script>
+	<script src="~/js/product-detail.js"></script>
+	<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+	<script src="~/js/product_detail.js"></script>
+}

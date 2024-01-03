@@ -1,0 +1,69 @@
+﻿@using ShoeShop.ViewModels.Authentication;
+@model RegisterViewModel;
+@{
+	ViewData["Title"] = "Register";
+}
+
+@section Styles {
+	<link href="~/css/account.css" rel="stylesheet">
+}
+
+<main class="bg_gray">
+	<div class="container margin_60">
+		<div class="page_header">
+			<h1 class="text-center">Create an Account</h1>
+		</div>
+		<!-- /page_header -->
+		<div class="row justify-content-center">
+			<div class="col-xl-6 col-lg-6 col-md-8">
+				<div class="box_account">
+					<h3 class="new_client">New Client</h3> <small class="float-right pt-2">* Required Fields</small>
+					@if (TempData["Error"] != null)
+					{
+						<div class="col-md-12 alert alert-danger mt-3">
+							<span><b>Sorry!</b> - @TempData["Error"]</span>
+						</div>
+					}
+					<form class="form_container" asp-action="Register">
+						<div class="form-group">
+							<label asp-for="FullName" class="form-label"></label>
+							<input asp-for="FullName" class="form-control mb-1" placeholder="Alex hgbaodev">
+							<span asp-validation-for="FullName" class="d-block text-danger mt-1"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="UserName" class="form-label"></label>
+							<input asp-for="UserName" class="form-control mb-1" placeholder="hgbaodev">
+							<span asp-validation-for="UserName" class="d-block text-danger mt-1"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="EmailAddress" class="form-label"></label>
+							<input asp-for="EmailAddress" class="form-control mb-1" placeholder="abc@email.com">
+							<span asp-validation-for="EmailAddress" class="d-block text-danger mt-1"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Password" class="form-label">Password</label>
+							<input asp-for="Password" class="form-control mb-1" placeholder="************">
+							<span asp-validation-for="Password" class="d-block text-danger mt-1"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="ConfirmPassword" class="form-label">Comfirm password</label>
+							<input asp-for="ConfirmPassword" class="form-control mb-1" placeholder="************">
+							<span asp-validation-for="ConfirmPassword" class="d-block text-danger mt-1"></span>
+						</div>
+						<div class="text-center"><input type="submit" value="Register" class="btn_1 full-width"></div>
+					</form>
+					<!-- /form_container -->
+				</div>
+				<!-- /box_account -->
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</main>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
