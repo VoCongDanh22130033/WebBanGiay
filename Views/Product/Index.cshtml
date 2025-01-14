@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ShoeShop.Models.Product>
 @{
-	ViewData["Title"] = "Products";
+	ViewData["Title"] = "Sản Phẩm";
 }
 @section Styles {
 	<link href="~/css/listing.css" rel="stylesheet">
@@ -21,11 +21,11 @@
 			<div class="container">
 				<div class="breadcrumbs">
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li>Products</li>
+						<li><a href="#">Trang Chủ</a></li>
+						<li>Sản Phẩm</li>
 					</ul>
 				</div>
-				<h1>Products</h1>
+				<h1>Sản Phẩm</h1>
 			</div>
 		</div>
 		<img src="~/img/bg_cat_shoes.jpg" class="img-fluid" alt="">
@@ -38,9 +38,9 @@
 				<li>
 					<div class="sort_select">
 						<select name="sort" id="sort">
-							<option value="date" selected="selected">Sort by newness</option>
-							<option value="price">Sort by price: low to high</option>
-							<option value="price-desc">Sort by price: high to</option>
+							<option value="date" selected="selected">Sắp Xếp Theo Độ Mới</option>
+                            <option value="price">Sắp Xếp Theo Giá: Thấp Đến Cao</option>
+                            <option value="price-desc">Sắp Xếp Theo Giá: Cao Xuống Thấp</option>
 						</select>
 					</div>
 				</li>
@@ -50,7 +50,7 @@
 				</li>
 				<li>
 					<a href="#0" class="open_filters">
-						<i class="ti-filter"></i><span>Filters</span>
+						<i class="ti-filter"></i><span>Bộ lọc</span>
 					</a>
 				</li>
 			</ul>

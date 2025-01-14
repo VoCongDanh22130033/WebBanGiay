@@ -3,7 +3,7 @@
 @inject SignInManager<AppUser> SignInManager
 
 @{
-    ViewData["Title"] = "Checkout";
+    ViewData["Title"] = "Thanh Toán";
     Layout = "~/Views/Shared/_CheckoutLayout.cshtml";
     var currentUser = ViewBag.currentUser;
     var addresses = ViewBag.Addresses;
@@ -36,21 +36,21 @@
                         <img src="~/img/logo_black.svg" />
                     </a>
                 </div>
-                <h5 class="mt-2">Shipping Infomation</h5>
+                <h5 class="mt-2">Thông tin vận chuyển</h5>
                 @if (!SignInManager.IsSignedIn(User))
                 {
                     <p>
-                        Already have an account? <a href="/authentication/signin?returnUrl=%2Fcheckout">Login</a>
+                        Bạn Đã Có Tài Khoản? <a href="/authentication/signin?returnUrl=%2Fcheckout">Đăng Nhập</a>
                     </p>
                 }
                 else
                 {
 
                     <div class="mb-4">
-                        <label class="form-label" for="choose-address @(addresses.Count == 0 ? "d-none" : "")">Choose Address</label>
+                        <label class="form-label" for="choose-address @(addresses.Count == 0 ? "d-none" : "")">Chọn Địa Chỉ</label>
                         <select class="js-select2 form-select" id="choose-address" name="choose-address" style="width: 100%;" data-placeholder="Choose address..">
                             <option></option>
-                            <option value="-1" selected>Add new address</option>
+                            <option value="-1" selected>Thêm Địa Chỉ Mới</option>
                             @foreach (var address in addresses)
                             {
                                 <option value="@address.Id" selected="@(address.IsDefault == true)">@address.SpecificAddress</option>
@@ -60,7 +60,7 @@
                     <div class="address-item add-new-address d-none" data-id="-1">
                         <form class="add-new-address-form">
                             <div class="mb-4">
-                                <label class="form-label" for="checkout-fullname">Fullname</label>
+                                <label class="form-label" for="checkout-fullname">Họ Và Tên</label>
                                 <input type="text" class="form-control form-control-alt" id="checkout-fullname" name="checkout-fullname">
                             </div>
                             <div class="row mb-4">
@@ -69,12 +69,12 @@
                                     <input type="text" class="form-control form-control-alt" id="checkout-email" name="checkout-email">
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="checkout-phone">Phone</label>
+                                    <label class="form-label" for="checkout-phone">Số Điện Thoại</label>
                                     <input type="number" class="form-control form-control-alt" id="checkout-phone" name="checkout-phone">
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label class="form-label" for="checkout-address">Address</label>
+                                <label class="form-label" for="checkout-address">Địa Chỉ</label>
                                 <input type="text" class="form-control form-control-alt" id="checkout-address" name="checkout-address">
                             </div>
                         </form>
@@ -95,18 +95,18 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    2. Order description
+                    2. Mô Tả Đơn Hàng
                 </h3>
             </div>
             <div class="block-content block-content-full space-y-3">
-                <textarea class="form-control" id="checkout-desc" name="checkout-desc" rows="4" placeholder="Enter note.."></textarea>
+                <textarea class="form-control" id="checkout-desc" name="checkout-desc" rows="4" placeholder="Mô Tả Thêm Nếu Cần..."></textarea>
             </div>
         </div>
         <!-- Shipping Method -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    3. Shipping Method
+                    3. Phương Thức Vận Chuyển
                 </h3>
             </div>
             <div class="block-content block-content-full space-y-3">
@@ -137,7 +137,7 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    4. Payment Method
+                    4. Phương Thức Thanh Toán
                 </h3>
             </div>
             <div class="block-content block-content-full space-y-3">
@@ -146,7 +146,7 @@
                     <label class="form-check-label" for="checkout-payment-1">
                         <span class="d-flex fw-normal p-1 align-items-center gap-3">
                             <i class="fa fa-shipping-fast fs-6"></i>
-                            <span class="d-block fw-semibold mb-1">Cash on delivery</span>
+                            <span class="d-block fw-semibold mb-1">Thanh Toán Tiền Mặt Khi Giao Hàng</span>
                         </span>
                     </label>
                 </div>
@@ -169,7 +169,7 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    Order Summary
+                    Tóm Tắt Đơn Hàng
                 </h3>
             </div>
             <div class="block-content block-content-full">
@@ -196,7 +196,7 @@
         <!-- END Shipping Method -->
         <button id="btn-complete" class="btn btn-primary w-100 py-3 push" disabled="@(!SignInManager.IsSignedIn(User))">
             <i class="fa fa-check opacity-50 me-1"></i>
-            Complete Order
+            Hoàn Thành Đơn Hàng
         </button>
     </div>
     <!-- END Order Summary -->

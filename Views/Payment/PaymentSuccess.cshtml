@@ -33,23 +33,23 @@
                         </svg>
                         <div class="d-inline-block">
                             <h4 class="mb-0">
-                                Your order is successfully placed
+                                Đơn hàng của bạn đã được đặt thành công
                             </h4>
                             <p class="mb-0">Thank you for purchasing our products!</p>
                         </div>
                     </div>
-                    <h5 class="mt-4">Shipping Infomation</h5>
+                    <h5 class="mt-4">Thông tin vận chuyển</h5>
                     <table class="table table-bordered table-vcenter">
                         <tr>
-                            <td>Order Id:</td>
+                            <td>Id đơn hàng:</td>
                             <td class="fw-bold text-primary">#@order.Id</td>
                         </tr>
                         <tr>
-                            <td>Full name:</td>
+                            <td>Họ Và Tên:</td>
                             <td class="fw-bold text-primary">@address.FullName</td>
                         </tr>
                         <tr>
-                            <td>Phone:</td>
+                            <td>Số Điện Thoại:</td>
                             <td class="fw-bold text-primary">@address.Phone</td>
                         </tr>
                         <tr>
@@ -57,28 +57,28 @@
                             <td class="fw-bold text-primary">@address.Email</td>
                         </tr>
                         <tr>
-                            <td>Address:</td>
+                            <td>Địa Chỉ:</td>
                             <td class="fw-bold text-primary">@address.SpecificAddress</td>
                         </tr>
                         <tr>
-                            <td>Description:</td>
+                            <td>Chi Tiét:</td>
                             <td class="fw-bold text-primary">@(order.Description != "" ? order.Description : "No description")</td>
                         </tr>
                         <tr>
-                            <td>Payment method:</td>
+                            <td>Phương Thức Thanh Toán:</td>
                             <td class="fw-bold text-primary">@(order.PaymentMethod)</td>
                         </tr>
                         <tr>
-                            <td>Shipping method:</td>
+                            <td>Phương Thức Vận Chuyển</td>
                             <td class="fw-bold text-primary">@(order.ShippingMethod)</td>
                         </tr>
                         <tr>
-                            <td>Payment status:</td>
+                            <td>Trạng Thái</td>
                             <td class="fw-bold text-primary" style="text-transform: uppercase"><span class="label-success status-label">@(order.PaymentStatus ? "Complete" : "Pending")</span></td>
                         </tr>
                     </table>
 
-                    <a class="btn btn-hero btn-info me-1 my-3" href="/"> Continue shopping <i class="fa fa-fw fa-arrow-right ms-1"></i></a>
+                    <a class="btn btn-hero btn-info me-1 my-3" href="/"> Tiếp Tục Mua Sắm<i class="fa fa-fw fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">
-                        Order Summary
+                        Tóm tắt đơn hàngy
                     </h3>
                 </div>
                 <div class="block-content block-content-full">
