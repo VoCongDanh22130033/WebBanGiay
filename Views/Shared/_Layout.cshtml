@@ -47,7 +47,7 @@
 		<header class="version_2">
 			<div class="layer"></div><!-- Mobile menu overlay mask -->
 
-			<div class="main_header Sticky border-bottom">
+			<div class="main_header Sticky border-bottom" style="background-color: #78bcc4;">
 				<div class="container">
 					<div class="row small-gutters">
 						<div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
@@ -86,21 +86,21 @@
 						</nav>
 						<div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-end">
 							<ul class="top_tools">
-								<li>
-									<div class="dropdown dropdown-cart">
-										<a href="~/cart" class="cart_bt"><strong>0</strong></a>
-										<div class="dropdown-menu">
+                                <li>
+                                    <div class="dropdown dropdown-cart">
+                                        <a href="~/cart" class="cart_bt"><strong>0</strong></a>
+                                        <div class="dropdown-menu">
                                             <ul>
-                                                Hiện tại chưa có sản phẩm nào
+                                                There are currently no products
                                             </ul>
-											<div class="total_drop">
-												<div class="clearfix"><strong>Tổng:</strong><span id="cart-total-price">Đ</span></div>
-												<a href="~/cart" class="btn_1 outline">Xem Giỏ Hàng</a><a href="~/checkout" class="btn_1">Thanh Toán</a>
-											</div>
-										</div>
-									</div>
-									<!-- /dropdown-cart-->
-								</li>
+                                            <div class="total_drop">
+                                                <div class="clearfix"><strong>Total</strong><span id="cart-total-price">$0.00</span></div>
+                                                <a href="~/cart" class="btn_1 outline">View Cart</a><a href="~/checkout" class="btn_1">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /dropdown-cart-->
+                                </li>
 								<li>
 									@if (SignInManager.IsSignedIn(User))
 									{
@@ -110,7 +110,7 @@
 												<div class="d-flex align-items-center gap-2">
 													<img alt="Image" src="@imageUser" class="avatar">
 													<div>
-														<p class="fw-bold mb-0">@currentUser.FullName</p>
+														<p class="fw-bold mb-0" style="color: #78BCC4;>@currentUser.FullName</p>
 														<p class="mb-0">@currentUser.Email</p>
 													</div>
 												</div>
