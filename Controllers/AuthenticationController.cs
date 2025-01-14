@@ -61,11 +61,11 @@ namespace ShoeShop.Controllers
 					}
 				}
 				//Password is incorrect
-				TempData["Error"] = "Wrong credentials. Please try again";
+				TempData["Error"] = "Thông tin xác thực sai. Vui lòng thử lại";
 				return View(loginViewModel);
 			}
 			//User not found
-			TempData["Error"] = "Wrong credentials. Please try again";
+			TempData["Error"] = "Thông tin xác thực sai. Vui lòng thử lại";
 			return View(loginViewModel);
 		}
 
@@ -84,13 +84,13 @@ namespace ShoeShop.Controllers
 			var user = await _userManager.FindByEmailAsync(registerViewModel.EmailAddress);
 			if (user != null)
 			{
-				TempData["Error"] = "This email address is already in use";
+				TempData["Error"] = "Địa chỉ email này đã được sử dụng";
 				return View(registerViewModel);
 			}
 			user = await _userManager.FindByNameAsync(registerViewModel.UserName);
 			if (user != null)
 			{
-				TempData["Error"] = "This username address is already in use";
+				TempData["Error"] = "Địa chỉ tên người dùng này đã được sử dụng";
 				return View(registerViewModel);
 			}
 
