@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
@@ -44,7 +44,150 @@
 </head>
 <body>
     <div id="page">
+		<header class="version_2">
+			<div class="layer"></div><!-- Mobile menu overlay mask -->
+			<div class="top_line version_1 plus_select">
+				<div class="container">
+					<div class="row d-flex align-items-center">
+						<div class="col-sm-6 col-5">
+							"Marketplace since 1995"
+						</div>
+						<div class="col-sm-6 col-7">
+							<ul class="top_links">
+								<li>
+									<div class="styled-select lang-selector">
+										<select>
+											<option value="English" selected>English</option>
+											<option value="French">French</option>
+											<option value="Spanish">Spanish</option>
+											<option value="Russian">Russian</option>
+										</select>
+									</div>
+								</li>
+								<li>
+									<div class="styled-select currency-selector">
+										<select>
+											<option value="US Dollars" selected="">US Dollars</option>
+											<option value="Euro">Euro</option>
+										</select>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- End row -->
+				</div>
+				<!-- End container-->
+			</div>
+			<div class="main_header Sticky border-bottom">
+				<div class="container">
+					<div class="row small-gutters">
+						<div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
+							<div id="logo">
+								<a asp-controller="Home" asp-action="Index"><img src="~/img/logo_black.svg" alt="" width="100" height="35"></a>
+							</div>
+						</div>
+						<nav class="col-xl-6 col-lg-7">
+							<a class="open_close" href="javascript:void(0);">
+								<div class="hamburger hamburger--spin">
+									<div class="hamburger-box">
+										<div class="hamburger-inner"></div>
+									</div>
+								</div>
+							</a>
+							<!-- Mobile menu button -->
+							<div class="main-menu">
+								<div id="header_menu">
+									<a href="index.html"><img src="~/img/logo_black.svg" alt="" width="100" height="35"></a>
+									<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
+								</div>
+								<ul>
+									<li>
+										<a asp-controller="Home" asp-action="Index">Home</a>
+									</li>
+									<li>
+										<a asp-controller="Product" asp-action="Index">Products</a>
+									</li>
+									<li>
+										<a asp-controller="Blog" asp-action="Index">Blog</a>
+									</li>
+									<li>
+										<a asp-controller="Contact" asp-action="Index">Contact</a>
+									</li>
+								</ul>
+							</div>
+							<!--/main-menu -->
+						</nav>
+						<div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-end">
+							<ul class="top_tools">
+								<li>
+									<div class="dropdown dropdown-cart">
+										<a href="~/cart" class="cart_bt"><strong>0</strong></a>
+										<div class="dropdown-menu">
+											<ul>
+												There are currently no products
+											</ul>
+											<div class="total_drop">
+												<div class="clearfix"><strong>Total</strong><span id="cart-total-price">$0.00</span></div>
+												<a href="~/cart" class="btn_1 outline">View Cart</a><a href="~/checkout" class="btn_1">Checkout</a>
+											</div>
+										</div>
+									</div>
+									<!-- /dropdown-cart-->
+								</li>
+								<li>
+									@if (SignInManager.IsSignedIn(User))
+									{
+										<div class="dropdown dropdown-access">
+											<a href="#" class="access_link"><span>Account</span></a>
+											<div class="dropdown-menu">
+												<div class="d-flex align-items-center gap-2">
+													<img alt="Image" src="@imageUser" class="avatar">
+													<div>
+														<p class="fw-bold mb-0">@currentUser.FullName</p>
+														<p class="mb-0">@currentUser.Email</p>
+													</div>
+												</div>
+												<ul>
+													<li>
+														<a href="trackorder"><i class="ti-truck"></i>Track your Order</a>
+													</li>
+													<li>
+														<a asp-controller="account" asp-action="orders"><i class="ti-package"></i>My Orders</a>
+													</li>
+													<li>
+														<a asp-controller="account" asp-action="profile"><i class="ti-user"></i>My Profile</a>
+													</li>
+													<li>
+														<a href="help"><i class="ti-help-alt"></i>Help and Faq</a>
+													</li>
+													<li>
+														<a asp-controller="authentication" asp-action="logout"><i class="ti-shift-left"></i>Logout</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									} else
+									{
+										<div class="dropdown dropdown-access">
+											<a asp-controller="authentication" asp-action="signin" class="access_link"><span>Account</span></a>
+										</div>
+									}
+									
+									<!-- /dropdown-access-->
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="search_panel"><span>Search</span></a>
+								</li>
 
+							</ul>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+			</div>
+			<!-- /main_header -->
+		</header>
       
         <!-- /header -->
         <!-- /search_panel -->
