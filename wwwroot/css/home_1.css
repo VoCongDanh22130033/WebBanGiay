@@ -88,7 +88,7 @@ ul#banners_grid li a.img_container .short_info {
   top: 0%;
   width: 100%;
   box-sizing: border-box;
-  color: #fff;
+  color: #f7444e;
   padding: 0 15px;
   height: 100%;
   display: flex;
@@ -102,7 +102,7 @@ ul#banners_grid li a.img_container .short_info {
   text-align: center;
 }
 ul#banners_grid li a.img_container .short_info h3 {
-  color: #fff;
+  color: #f7444e;
   font-size: 24px;
   font-size: 1.5rem;
   margin: 0;
@@ -188,24 +188,24 @@ ul#banners_grid li a.img_container .short_info:hover div {
   line-height: 1;
   padding: 100px 20px 20px 20px;
 }
-.categories_grid a .wrapper h2 {
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  font-size: 21px;
-  font-size: 1.3125rem;
-  margin: 0;
-  -webkit-transform: translateY(20px) translateZ(0);
-  -moz-transform: translateY(20px) translateZ(0);
-  -ms-transform: translateY(20px) translateZ(0);
-  -o-transform: translateY(20px) translateZ(0);
-  transform: translateY(20px) translateZ(0);
-  -webkit-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-  -moz-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-  -ms-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-  -o-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-  transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-}
+    .categories_grid a .wrapper h2 {
+        color: #f7444e;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 21px;
+        font-size: 1.3125rem;
+        margin: 0;
+        -webkit-transform: translateY(20px) translateZ(0);
+        -moz-transform: translateY(20px) translateZ(0);
+        -ms-transform: translateY(20px) translateZ(0);
+        -o-transform: translateY(20px) translateZ(0);
+        transform: translateY(20px) translateZ(0);
+        -webkit-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+        -moz-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+        -ms-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+        -o-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+        transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    }
 .categories_grid a .wrapper p {
   color: #fff;
   opacity: 0;

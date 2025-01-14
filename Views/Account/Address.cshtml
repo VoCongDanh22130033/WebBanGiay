@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="~/admin/js/plugins/sweetalert2/sweetalert2.min.css">
 }
 
-<main style="background-color: #efefef">
+<main style="background-color: #F5F5F5">
     <div class="container magrin_30">
         <nav aria-label="breadcrumb" class="pt-3">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                <li class="breadcrumb-item active" aria-current="page">Địa chỉ</li>
             </ol>
         </nav>
         <div class="row">
@@ -43,13 +43,13 @@
                     </div>
                     <div class="list-group list-group-flush my-1">
                         <a href="/account/profile" class="list-group-item list-group-item-action d-flex align-items-center gap-1 bg-transparent">
-                            <i class="fa-solid fa-user fs-6 me-2"></i><span>Account information</span>
+                            <i class="fa-regular fa-user fs-6 me-2" style="color: #007BFF;"></i><span>Thông tin tài khoản</span>
                         </a>
                         <a href="/account/orders" class="list-group-item list-group-item-action d-flex align-items-center gap-1 bg-transparent">
-                            <i class="fas fa-shopping-cart fs-6 me-2"></i><span>Order management</span>
+                            <i class="fas fa-shopping-cart fs-6 me-2" style="color: #007BFF;"></i><span>Đơn hàng của tôi</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-1 bg-transparent active">
-                            <i class="fas fa-address-card fs-6 me-2"></i><span>Address</span>
+                            <i class="fas fa-address-card fs-6 me-2" style="color: #007BFF;"></i><span>Địa chỉ</span>
                         </a>
                     </div>
                 </div>
@@ -58,10 +58,10 @@
                 <div id="page-content-wrapper">
                     <nav class="navbar navbar-expand-lg navbar-light bg-transparent pb-4 px-4 justify-content-between">
                         <div class="d-flex align-items-center">
-                            <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                            <h5 class="m-0">Address</h5>
+                            <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle" style="color: #007BFF;"></i>
+                            <h5 class="m-0">Địa chỉ</h5>
                         </div>
-                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal"><i class="fa-solid fa-plus me-2"></i> Add</button>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal"><i class="fa-solid fa-plus me-2"></i> Thêm</button>
                     </nav>
                     <div class="container-fluid px-4">
                         <div class="row mb-4 bg-white rounded shadow-sm pt-3" id="list-address">
@@ -76,83 +76,113 @@
 <!-- Modal -->
 <div class="modal fade" id="addAddressModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="addAddressForm" onsubmit="return false;">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addAddressModalLabel">Address</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <form id="addAddressForm" onsubmit="return false;" style="background-color: #f9f9f9; padding: 20px;">
+                <div class="modal-header" style="background-color: #007bff; color: white; padding: 15px; border-bottom: 1px solid #0056b3;">
+                    <h5 class="modal-title" id="addAddressModalLabel" style="margin: 0;">Địa chỉ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            style="background: none; border: none; color: white; font-size: 1.2em;">
+                        &times;
+                    </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="padding: 20px; background-color: #ffffff;">
                     <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                        <label for="fullName" class="form-label" style="color: #333; font-weight: bold;">Họ và Tên</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email" class="form-label" style="color: #333; font-weight: bold;">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                        <label for="phone" class="form-label" style="color: #333; font-weight: bold;">Số điện thoại</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" required>
+                        <label for="address" class="form-label" style="color: #333; font-weight: bold;">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address" name="address" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="default-address">
-                        <label class="form-check-label" for="default-address">
-                            Default address
+                    <div class="form-check" style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" id="default-address"
+                               style="margin-right: 10px; transform: scale(1.2);">
+                        <label class="form-check-label" for="default-address" style="color: #555;">
+                            Địa chỉ mặc định
                         </label>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="btn-save">Save changes</button>
+                <div class="modal-footer" style="background-color: #f1f1f1; padding: 15px; border-top: 1px solid #ddd;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background-color: #6c757d; color: white; padding: 10px 20px; border-radius: 5px; border: none;">
+                        Đóng
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="btn-save"
+                            style="background-color: #007bff; color: white; padding: 10px 20px; border-radius: 5px; border: none;">
+                        Lưu
+                    </button>
                 </div>
             </form>
         </div>
+
     </div>
 </div>
 
 <div class="modal fade" id="editAddressModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="editAddressForm" onsubmit="return false;">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editAddressModalLabel">Edit Address</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <form id="editAddressForm" onsubmit="return false;" style="background-color: #f9f9f9; padding: 20px;">
+                <div class="modal-header" style="background-color: #007bff; color: white; padding: 15px; border-bottom: 1px solid #0056b3;">
+                    <h5 class="modal-title" id="editAddressModalLabel" style="margin: 0;">Chỉnh sửa địa chỉ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            style="background: none; border: none; color: white; font-size: 1.2em;">
+                        &times;
+                    </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="padding: 20px; background-color: #ffffff;">
                     <div class="mb-3">
-                        <label for="editFullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="editFullName" name="editFullName" required>
+                        <label for="editFullName" class="form-label" style="color: #333; font-weight: bold;">Họ và tên</label>
+                        <input type="text" class="form-control" id="editFullName" name="editFullName" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
                     <div class="mb-3">
-                        <label for="editEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="editEmail" name="editEmail" required>
+                        <label for="editEmail" class="form-label" style="color: #333; font-weight: bold;">Email</label>
+                        <input type="email" class="form-control" id="editEmail" name="editEmail" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
                     <div class="mb-3">
-                        <label for="editPhone" class="form-label">Phone</label>
-                        <input type="tel" class="form-control" id="editPhone" name="editPhone" required>
+                        <label for="editPhone" class="form-label" style="color: #333; font-weight: bold;">Số điện thoại</label>
+                        <input type="tel" class="form-control" id="editPhone" name="editPhone" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
                     <div class="mb-3">
-                        <label for="editAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="editAddress" name="editAddress" required>
+                        <label for="editAddress" class="form-label" style="color: #333; font-weight: bold;">Địa chỉ</label>
+                        <input type="text" class="form-control" id="editAddress" name="editAddress" required
+                               style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="editIsDefault">
-                        <label class="form-check-label" for="editIsDefault">
-                            Default address
+                    <div class="form-check" style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" id="editIsDefault"
+                               style="margin-right: 10px; transform: scale(1.2);">
+                        <label class="form-check-label" for="editIsDefault" style="color: #555;">
+                            Địa chỉ mặc định
                         </label>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="btn-save">Save changes</button>
+                <div class="modal-footer" style="background-color: #f1f1f1; padding: 15px; border-top: 1px solid #ddd;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background-color: #6c757d; color: white; padding: 10px 20px; border-radius: 5px; border: none;">
+                        Đóng
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="btn-save"
+                            style="background-color: #007bff; color: white; padding: 10px 20px; border-radius: 5px; border: none;">
+                        Lưu
+                    </button>
                 </div>
             </form>
         </div>
+
     </div>
 </div>
 @section Scripts {
@@ -179,15 +209,15 @@
                                                 <p class="mb-0">Email: ${address.email}</p>
                                             </div>
                                             <div>
-                                                <button class="btn btn-success btn-sm btn-edit">Edit</button>
-                                                <button class="btn btn-danger btn-sm btn-delete">Delete</button>
+                                                <button class="btn btn-success btn-sm btn-edit">Chỉnh sửa</button>
+                                                <button class="btn btn-danger btn-sm btn-delete">Xóa</button>
                                             </div>
                                         </div>
                                     </div>
                                 `;
                     })
                 } else {
-                    addressItemHtml = '<p class="text-center d-flex flex-column gap-2"><i class="fa-regular fa-address-book fs-1"></i><span>No addresses added yet</span></p>';
+                    addressItemHtml = '<p class="text-center d-flex flex-column gap-2"><i class="fa-regular fa-address-book fs-1"></i><span>Chưa có địa chỉ nào được thêm vào</span></p>';
                 }
                 
                 $('#list-address').html(addressItemHtml);
@@ -225,13 +255,13 @@
                     }
                 },
                 messages: {
-                    fullName: "Please enter your full name",
+                    fullName: "Vui lòng nhập tên đầy đủ của bạn",
                     email: {
-                        required: "Please enter your email address",
-                        email: "Please enter a valid email address"
+                        required: "Vui lòng nhập địa chỉ email của bạn",
+                        email: "Vui lòng nhập địa chỉ email hợp lệ"
                     },
-                    phone: "Please enter your phone number",
-                    address: "Please enter your address"
+                    phone: "Vui lòng nhập số điện thoại của bạn",
+                    address: "Vui lòng nhập địa chỉ của bạn"
                 }
             });
 

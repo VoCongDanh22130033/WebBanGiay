@@ -8,50 +8,59 @@
 	<link href="~/css/account.css" rel="stylesheet">
 }
 
-<main class="bg_gray">
+<main class="bg_gray" style="background-color: #F5F5F5">
 	<div class="container margin_60">
 		<div class="page_header">
-			<h1 class="text-center">Create an Account</h1>
+            <h1 class="text-center" style="color: #007bff; font-weight: bold;">Tạo tài khoản</h1>
 		</div>
 		<!-- /page_header -->
 		<div class="row justify-content-center">
 			<div class="col-xl-6 col-lg-6 col-md-8">
 				<div class="box_account">
-					<h3 class="new_client">New Client</h3> <small class="float-right pt-2">* Required Fields</small>
+                    <h3 class="new_client" style="color: #007bff; font-weight: bold;">người dùng mới</h3> <small class="float-right pt-2">* Các trường bắt buộc</small>
 					@if (TempData["Error"] != null)
 					{
 						<div class="col-md-12 alert alert-danger mt-3">
 							<span><b>Sorry!</b> - @TempData["Error"]</span>
 						</div>
 					}
-					<form class="form_container" asp-action="Register">
-						<div class="form-group">
-							<label asp-for="FullName" class="form-label"></label>
-							<input asp-for="FullName" class="form-control mb-1" placeholder="Alex hgbaodev">
-							<span asp-validation-for="FullName" class="d-block text-danger mt-1"></span>
-						</div>
-						<div class="form-group">
-							<label asp-for="UserName" class="form-label"></label>
-							<input asp-for="UserName" class="form-control mb-1" placeholder="hgbaodev">
-							<span asp-validation-for="UserName" class="d-block text-danger mt-1"></span>
-						</div>
-						<div class="form-group">
-							<label asp-for="EmailAddress" class="form-label"></label>
-							<input asp-for="EmailAddress" class="form-control mb-1" placeholder="abc@email.com">
-							<span asp-validation-for="EmailAddress" class="d-block text-danger mt-1"></span>
-						</div>
-						<div class="form-group">
-							<label asp-for="Password" class="form-label">Password</label>
-							<input asp-for="Password" class="form-control mb-1" placeholder="************">
-							<span asp-validation-for="Password" class="d-block text-danger mt-1"></span>
-						</div>
-						<div class="form-group">
-							<label asp-for="ConfirmPassword" class="form-label">Comfirm password</label>
-							<input asp-for="ConfirmPassword" class="form-control mb-1" placeholder="************">
-							<span asp-validation-for="ConfirmPassword" class="d-block text-danger mt-1"></span>
-						</div>
-						<div class="text-center"><input type="submit" value="Register" class="btn_1 full-width"></div>
-					</form>
+                    <form class="form_container" asp-action="Register" style="max-width: 500px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label asp-for="FullName" class="form-label" style="font-weight: bold; color: #333;">Họ và Tên</label>
+                            <input asp-for="FullName" class="form-control mb-1" placeholder="Nhập họ và tên"
+                                   style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; width: 100%; outline: none;">
+                            <span asp-validation-for="FullName" class="d-block text-danger mt-1" style="color: #dc3545; font-size: 14px;"></span>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label asp-for="UserName" class="form-label" style="font-weight: bold; color: #333;">Tên tài khoản</label>
+                            <input asp-for="UserName" class="form-control mb-1" placeholder="Nhập tên tài khoản"
+                                   style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; width: 100%; outline: none;">
+                            <span asp-validation-for="UserName" class="d-block text-danger mt-1" style="color: #dc3545; font-size: 14px;"></span>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label asp-for="EmailAddress" class="form-label" style="font-weight: bold; color: #333;">Email</label>
+                            <input asp-for="EmailAddress" class="form-control mb-1" placeholder="Nhập email"
+                                   style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; width: 100%; outline: none;">
+                            <span asp-validation-for="EmailAddress" class="d-block text-danger mt-1" style="color: #dc3545; font-size: 14px;"></span>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label asp-for="Password" class="form-label" style="font-weight: bold; color: #333;">Mật khẩu</label>
+                            <input asp-for="Password" class="form-control mb-1" placeholder="Nhập mật khẩu"
+                                   style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; width: 100%; outline: none;">
+                            <span asp-validation-for="Password" class="d-block text-danger mt-1" style="color: #dc3545; font-size: 14px;"></span>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label asp-for="ConfirmPassword" class="form-label" style="font-weight: bold; color: #333;">Xác nhận mật khẩu</label>
+                            <input asp-for="ConfirmPassword" class="form-control mb-1" placeholder="Xác nhận mật khẩu"
+                                   style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; width: 100%; outline: none;">
+                            <span asp-validation-for="ConfirmPassword" class="d-block text-danger mt-1" style="color: #dc3545; font-size: 14px;"></span>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" value="Đăng ký" class="btn_1 full-width"
+                                   style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                        </div>
+                    </form>
+
 					<!-- /form_container -->
 				</div>
 				<!-- /box_account -->
