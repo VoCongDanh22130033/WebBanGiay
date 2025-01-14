@@ -394,7 +394,6 @@
   }
 }
 .btn_1::before {
-    content: "Thêm Vào Giỏ Hàng";
     display: inline-block;
     margin-right: 5px;
     font-weight: bold;
