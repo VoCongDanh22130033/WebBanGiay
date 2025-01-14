@@ -114,16 +114,16 @@
                         </tbody>
                         <tbody>
                             <tr>
-                                <td class="ps-0 fw-medium">Subtotal</td>
-                                <td class="pe-0 fw-medium text-end" id="sub-total">$@order.SubTotal</td>
+                                <td class="ps-0 fw-medium">Tạm Tính</td>
+                                <td class="pe-0 fw-medium text-end" id="sub-total">@order.SubTotal Đ</td>
                             </tr>
                             <tr>
-                                <td class="ps-0 fw-medium">Shipping fee</td>
-                                <td class="pe-0 fw-medium text-end" id="shipping-fee">$@order.ShippingFee</td>
+                                <td class="ps-0 fw-medium">Phí Giao Hàng</td>
+                                <td class="pe-0 fw-medium text-end" id="shipping-fee">@order.ShippingFee Đ</td>
                             </tr>
                             <tr>
-                                <td class="ps-0 fw-medium">Total</td>
-                                <td class="pe-0 fw-bold text-end" id="total">$@(order.SubTotal + order.ShippingFee)</td>
+                                <td class="ps-0 fw-medium">Tổng Cộng</td>
+                                <td class="pe-0 fw-bold text-end" id="total">@(order.SubTotal + order.ShippingFee) Đ</td>
                             </tr>
                         </tbody>
                     </table>
