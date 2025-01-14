@@ -19,25 +19,25 @@
             <div class="row mb-1">
                 <div class="col-2">
                     <select id="order-status" class="form-select" aria-label="Filters">
-                        <option value="-2" selected>All</option>
-                        <option value="-1">Canceled</option>
-                        <option value="0">Unconfirmed</option>
-                        <option value="1">Confirmed</option>
+                        <option value="-2" selected>Tất cả</option>
+                        <option value="-1">Đã hủy</option>
+                        <option value="0">Chưa xác nhận</option>
+                        <option value="1">Đã xác nhận</option>
                     </select>
                 </div>
                 <div class="col-6">
                     <div class="input-daterange input-group" data-date-format="mm/dd/yyyy" data-week-start="1" data-autoclose="true" data-today-highlight="true">
-                        <input type="text" class="form-control" id="order-start-time" name="order-start-time" placeholder="From" data-week-start="1" data-autoclose="true" data-today-highlight="true">
+                        <input type="text" class="form-control" id="order-start-time" name="order-start-time" placeholder="Từ" data-week-start="1" data-autoclose="true" data-today-highlight="true">
                         <span class="input-group-text fw-semibold">
                             <i class="fa fa-fw fa-arrow-right"></i>
                         </span>
-                        <input type="text" class="form-control" id="order-end-time" name="order-end-time" placeholder="To" data-week-start="1" data-autoclose="true" data-today-highlight="true">
+                        <input type="text" class="form-control" id="order-end-time" name="order-end-time" placeholder="Đến" data-week-start="1" data-autoclose="true" data-today-highlight="true">
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping"><i class="fa fa-fw fa-search"></i></span>
-                        <input type="text" class="form-control" id="order-query" name="order-query" placeholder="Search all orders..">
+                        <input type="text" class="form-control" id="order-query" name="order-query" placeholder="Tìm kiếm">
                     </div>
                 </div>
             </div>
@@ -49,13 +49,13 @@
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 100px;">ID</th>
-                            <th>Customer</th>
-                            <th>Payment Method</th>
-                            <th>Shipping Method</th>
-                            <th class="text-center">Total</th>
-                            <th>Status</th>
-                            <th>Submitted</th>
-                            <th class="text-center">Actions</th>
+                            <th>Khách hàng</th>
+                            <th>Phương thức thanh toán</th>
+                            <th>Phương thức vận chuyển</th>
+                            <th class="text-center">Tổng cộng</th>
+                            <th>Trạng thái</th>
+                            <th>Đã hoàn thành</th>
+                            <th class="text-center">Hành động</th>
                         </tr>
                     </thead>
                 </table>
@@ -92,16 +92,16 @@
             let result = '';
             switch (value) {
                 case -1:
-                    result = `<span class="badge rounded-pill bg-danger">Cancelled</span>`;
+                    result = `<span class="badge rounded-pill bg-danger">Đã hủy</span>`;
                     break;
                 case 0:
-                    result = `<span class="badge rounded-pill bg-warning">Pending</span>`;
+                    result = `<span class="badge rounded-pill bg-warning">Chưa giải quyết</span>`;
                     break;
                 case 1:
-                    result = `<span class="badge rounded-pill bg-success">Confirmed</span>`;
+                    result = `<span class="badge rounded-pill bg-success">Đã xác nhận</span>`;
                     break;
                 default:
-                    result = `<span class="badge rounded-pill bg-secondary">Unknown</span>`;
+                    result = `<span class="badge rounded-pill bg-secondary">Không rõ</span>`;
             }
             return result;
         };
@@ -197,8 +197,8 @@
         $(document).on("click", ".btn-delete", async function () {
             let trid = $(this).data("id");
             let result = await Swal.fire({
-                title: "Are you sure?",
-                text: "Would you like to delete this color?",
+                title: "Bạn có chắc không?",
+                text: "Bạn có muốn xóa màu này không?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Yes, I'm sure!",
