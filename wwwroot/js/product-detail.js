@@ -65,7 +65,7 @@
 		const stock = variants[variantIndex].sizes[sizeIndex].stock;
 		if (stock > 0) {
 			$(".color-stock").html(`Còn hàng (${stock})`);
-			$(".btn-cart-container").html(`<div class="btn_add_to_cart"><a href="#0" class="btn_1 add-cart">Add to Cart</a></div>`)
+			$(".btn-cart-container").html(`<div class="btn_add_to_cart"><a href="#0" class="btn_1 add-cart">Thêm Vào Giỏ Hàng</a></div>`)
 		} else {
 			$(".color-stock").html(`Hết hàng`);
 			$(".btn-cart-container").html(`<div class="btn_add_to_cart"><a href="#0" class="btn_1 bg-danger">Hết hàng</a></div>`)
@@ -90,13 +90,13 @@
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "The product does not have enough inventory"
+					text: "Sản phẩm không còn đủ hàng tồn kho"
 				});
 			} else {
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "The product already exists in the shopping cart"
+					text: "Sản phẩm đã tồn tại trong giỏ hàng"
 				});
 			}
 			
@@ -127,7 +127,7 @@
 								<img src="/img/products/${product.thumbnail}" alt="" data-was-processed="true">
 					</figure>
 					<h4>${product.quantity} x ${product.title}</h4>
-					<p class="mb-0 text-secondary">Color: ${product.colorName}, Size: ${product.sizeName}</p>
+					<p class="mb-0 text-secondary">Màu: {product.colorName}Đ, Kích Thước: {product.sizeName}</p>
 					<div class="price_panel"><span class="new_price">$${product.price}</span></div>`;
 		$('.pnl-cart').html(html);
 	}
