@@ -70,27 +70,27 @@
 	                    <div class="row">
 	                        <div class="col-lg-5 col-md-6">
                                 <div class="price_main">
-                                    @if (@product.PriceSale != 0)
+                                    @if (product.PriceSale != 0)
                                     {
                                         var percent = 100 - (int)Math.Round((product.PriceSale / product.Price) * 100);
                                         <span class="new_price product-price" data-price="@product.PriceSale">
-                                            @String.Format("{0:N0}", product.PriceSale) Đ
+                                            @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", product.PriceSale)
                                         </span>
                                         <span class="percentage">-@percent %</span>
-                                        <span class="old_price">$@String.Format("{0:N0}", product.Price)</span>
-									}
-									else
-
-									{
+                                        <span class="old_price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", product.Price)</span>
+                                    }
+                                    else
+                                    {
                                         <span class="new_price product-price" data-price="@product.Price">
-                                            @String.Format("{0:N0}", product.Price) Đ
+                                            @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C0}", product.Price)
                                         </span>
                                     }
+
 
                                 </div>
 	                        </div>
 	                        <div class="col-lg-4 col-md-6 btn-cart-container">
-	                            <div class="btn_add_to_cart"><a href="javascript:void(0);" class="btn_1">Thêm Vào Giỏ Hàng</a></div>
+	                            <div class="btn_add_to_cart"><a href="javascript:void(0);" class="btn_1"></a></div>
 	                        </div>
 	                    </div>
 	                </div>
