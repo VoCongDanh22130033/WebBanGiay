@@ -46,7 +46,7 @@
                             S<span class="opacity-75">s</span>
                         </span>
                         <span class="smini-hidden">
-                            Shoe<span class="opacity-75">Store</span>
+                            MVC<span class="opacity-75"></span>
                         </span>
                     </a>
                     <!-- END Logo -->
@@ -55,15 +55,11 @@
                         <!-- Toggle Sidebar Style -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
                         <!-- Class Toggle, functionality initialized in Helpers.dmToggleClass() -->
-                        <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="class-toggle" data-target="#sidebar-style-toggler" data-class="fa-toggle-off fa-toggle-on" onclick="Dashmix.layout('sidebar_style_toggle');Dashmix.layout('header_style_toggle');">
-                            <i class="fa fa-toggle-off" id="sidebar-style-toggler"></i>
-                        </button>
+                       
                         <!-- END Toggle Sidebar Style -->
                         <!-- Dark Mode -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="class-toggle" data-target="#dark-mode-toggler" data-class="far fa" onclick="Dashmix.layout('dark_mode_toggle');">
-                            <i class="far fa-moon" id="dark-mode-toggler"></i>
-                        </button>
+                      
                         <!-- END Dark Mode -->
                         <!-- Close Sidebar, Visible only on mobile screens -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
@@ -92,59 +88,37 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="nav-main-link-icon fa fa-socks"></i>
-                                <span class="nav-main-link-name">Products</span>
+                                <span class="nav-main-link-name">Quản lý sản phẩm</span>
                             </a>
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" asp-controller="Products" asp-action="Index">
-                                        <span class="nav-main-link-name">All product</span>
+                                        <span class="nav-main-link-name">Tất cả sản phẩm</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" asp-controller="Categories" asp-action="Index">
-                                        <span class="nav-main-link-name">Categories</span>
+                                        <span class="nav-main-link-name">Danh mục</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" asp-controller="Brands" asp-action="Index">
-                                        <span class="nav-main-link-name">Brands</span>
+                                        <span class="nav-main-link-name">Nhãn hàng</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" asp-controller="Colors" asp-action="Index">
-                                        <span class="nav-main-link-name">Colors</span>
+                                        <span class="nav-main-link-name">Màu</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" asp-controller="Sizes" asp-action="Index">
-                                        <span class="nav-main-link-name">Sizes</span>
+                                        <span class="nav-main-link-name">Kích thước</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                <i class="nav-main-link-icon fa fa-blog"></i>
-                                <span class="nav-main-link-name">Blog</span>
-                            </a>
-                            <ul class="nav-main-submenu">
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" asp-controller="Blogs" asp-action="Index">
-                                        <span class="nav-main-link-name">All post</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" asp-controller="Blogs" asp-action="Create">
-                                        <span class="nav-main-link-name">Create post</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" asp-controller="Topics" asp-action="Index">
-                                        <span class="nav-main-link-name">Categories</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                   
                         <li class="nav-main-item">
                             <a class="nav-main-link" asp-controller="Orders" asp-action="Index">
                                 <i class="nav-main-link-icon fa fa-shopping-bag"></i>
@@ -163,12 +137,7 @@
                                 <span class="nav-main-link-name">Customser</span>
                             </a>
                         </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" asp-controller="Contacts" asp-action="Index">
-                                <i class="nav-main-link-icon fa fa-envelope"></i>
-                                <span class="nav-main-link-name">Contact</span>
-                            </a>
-                        </li>
+                   
                     </ul>
                 </div>
                 <!-- END Side Navigation -->
