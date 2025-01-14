@@ -3,7 +3,7 @@
 	@if (Model.PriceSale != 0)
 	{
 		var roundedPercentage = 100 - (int)Math.Round((Model.PriceSale / Model.Price) * 100);
-		<span class="ribbon off">-@roundedPercentage%</span>
+		<span class="ribbon off">@roundedPercentage%</span>
 	}
 	else
 	{
