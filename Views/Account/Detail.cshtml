@@ -26,12 +26,12 @@
     <link rel="stylesheet" href="~/admin/js/plugins/sweetalert2/sweetalert2.min.css">
 }
 
-<main style="background-color: #efefef">
+<main style="background-color: #F5F5F5">
     <div class="container magrin_30">
         <nav aria-label="breadcrumb" class="pt-3">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Đơn hàng của tôi</li>
             </ol>
         </nav>
         <div class="row">
@@ -52,13 +52,13 @@
                     </div>
                     <div class="list-group list-group-flush my-1">
                         <a href="/account/profile" class="list-group-item list-group-item-action d-flex align-items-center gap-1 bg-transparent">
-                            <i class="fa-solid fa-user fs-6 me-2"></i><span>Account information</span>
+                            <i class="fa-regular fa-user fs-6 me-2" style="color: #007BFF;"></i><span>Thông tin tài khoản</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-1 bg-transparent active">
-                            <i class="fas fa-shopping-cart fs-6 me-2"></i><span>Order management</span>
+                            <i class="fas fa-shopping-cart fs-6 me-2"></i><span>Đơn hàng của tôi</span>
                         </a>
                         <a href="/account/address" class="list-group-item list-group-item-action d-flex align-items-center gap-1 bg-transparent">
-                            <i class="fas fa-address-card fs-6 me-2"></i><span>Address</span>
+                            <i class="fa-solid fa-location-dot fs-6 me-2" style="color: #007BFF;"></i><span>Địa chỉ</span>
                         </a>
                     </div>
                 </div>
@@ -68,14 +68,14 @@
                     <nav class="navbar navbar-expand-lg navbar-light bg-transparent pb-4 px-4">
                         <div class="d-flex align-items-center">
                             <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                            <h5 class="m-0">Order #@order.Id</h5>
+                            <h5 class="m-0">Đơn hàng #@order.Id</h5>
                         </div>
                     </nav>
                     <div class="container-fluid px-4">
                         <div class="row mb-4">
                             <div class="col-12 bg-white rounded shadow-sm p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <p class="fs-5 fw-semibold mb-0">Description</p>
+                                    <p class="fs-5 fw-semibold mb-0">Mô tả</p>
                                     <div> <i class="fa fa-clock me-2"></i>@order.CreatedAt</div>
                                 </div>
                                 <div class="alert alert-info">
@@ -87,12 +87,12 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center" style="width: 100px;">ID</th>
-                                                <th>Product Name</th>
-                                                <th class="text-center">Size</th>
-                                                <th>Color</th>
-                                                <th class="text-center">Qty</th>
-                                                <th class="text-end" style="width: 10%;">Unit Cost</th>
-                                                <th class="text-end" style="width: 10%;">Price</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th class="text-center">Kích thước</th>
+                                                <th>Màu</th>
+                                                <th class="text-center">Số lượng</th>
+                                                <th class="text-end" style="width: 10%;">Chi phí đơn vị</th>
+                                                <th class="text-end" style="width: 10%;">Giá</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -109,15 +109,15 @@
                                                 </tr>
                                             }
                                             <tr>
-                                                <td colspan="6" class="text-end"><strong>Total Price:</strong></td>
+                                                <td colspan="6" class="text-end"><strong>Tổng tiền:</strong></td>
                                                 <td class="text-end">$@order.SubTotal</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="6" class="text-end"><strong>Shipping Fee:</strong></td>
+                                                <td colspan="6" class="text-end"><strong>Phí vận chuyển:</strong></td>
                                                 <td class="text-end">$@order.ShippingFee</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="6" class="text-end text-uppercase"><strong>Total Due:</strong></td>
+                                                <td colspan="6" class="text-end text-uppercase"><strong>Tổng số tiền phải trả:</strong></td>
                                                 <td class="text-end"><strong>$@(order.ShippingFee + order.SubTotal)</strong></td>
                                             </tr>
                                         </tbody>
@@ -130,22 +130,22 @@
                                             case OrderStatus.Confirmed:
                                                 <div class="d-flex align-items-center gap-2">
                                                     <i class="fa fa-check text-success fs-4"></i>
-                                                    <p class="mb-0 fs-6">ORDER WAS CONFIRMED</p>
+                                                    <p class="mb-0 fs-6">ĐƠN HÀNG ĐÃ ĐƯỢC XÁC NHẬN</p>
                                                 </div>
                                                 break;
 
                                             case OrderStatus.Unconfirmed:
                                                 <div class="d-flex align-items-center gap-2">
                                                     <i class="fa fa-times text-danger fs-4"></i>
-                                                    <p class="mb-0 fs-6">ORDER NOT CONFIRMED</p>
+                                                    <p class="mb-0 fs-6">ĐƠN HÀNG CHƯA ĐƯỢC XÁC NHẬN</p>
                                                 </div>
-                                                <button class="btn btn-danger" id="btn-canceled">Canceled</button>
+                                                <button class="btn btn-danger" id="btn-canceled">Đã hủy</button>
                                                 break;
 
                                             case OrderStatus.Canceled:
                                                 <div class="d-flex align-items-center gap-2">
                                                     <i class="fa fa-check text-danger fs-4"></i>
-                                                    <p class="mb-0 fs-6">ORDER WAS CANCELED</p>
+                                                    <p class="mb-0 fs-6">ĐƠN HÀNG ĐÃ BỊ HỦY</p>
                                                 </div>
                                                 break;
                                         }
@@ -171,7 +171,7 @@
                                 <div class="py-3">
                                     <div class="d-flex align-items-center gap-2 mb-2">
                                         <i class="fa fa-check text-success fs-4"></i>
-                                        <p class="mb-0 fs-6">DELIVERY</p>
+                                        <p class="mb-0 fs-6">VẬN CHUYỂN</p>
                                     </div>
                                     <div>
                                         <p class="fs-sm mb-0">Shipping method: @order.ShippingMethod</p>
@@ -196,7 +196,7 @@
                         //Dashmix.helpers('jq-notify', { type: 'success', icon: 'fa fa-check me-1', message: 'Order confirmation successful!' });
                         $("#order-confirm-container").html(`<div class="d-flex align-items-center gap-2">
                             <i class="fa fa-check text-danger fs-4"></i>
-                            <p class="mb-0 fs-6">ORDER WAS CANCELED</p>
+                            <p class="mb-0 fs-6">ĐƠN HÀNG ĐÃ BỊ HỦY</p>
                          </div>`);
                     } else {
                         //Dashmix.helpers('jq-notify', { type: 'danger', icon: 'fa fa-times me-1', message: 'Order confirmation failed!' });
