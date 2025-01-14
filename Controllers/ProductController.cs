@@ -74,10 +74,10 @@ namespace ShoeShop.Controllers
 				ViewBag.Sizes = sizesWithCount;
 				var priceRanges = new[]
 				{
-					new PriceRangeInfo { Min = 0, Max = 50, Name = "$0 - $50", Value = "0:50" },
-					new PriceRangeInfo { Min = 50, Max = 100, Name = "$50 - $100", Value = "50:100" },
-					new PriceRangeInfo { Min = 100, Max = 200, Name = "$100 - $200", Value = "100:200" },
-					new PriceRangeInfo { Min = 200, Max = 1000, Name = "$200 - $1000", Value = "200:1000" }
+					new PriceRangeInfo { Min = 0, Max = 100000, Name = "0Đ-100.000Đ", Value = "0:100000" },
+					new PriceRangeInfo { Min = 100000, Max = 200000, Name = "100000Đ-200000Đ", Value = "100000:200000" },
+					new PriceRangeInfo { Min = 200000, Max = 500000, Name = "100000Đ-500000Đ", Value = "200000:500000" },
+					new PriceRangeInfo { Min = 500000, Max = 1000000, Name = "500000Đ-1000000Đ", Value = "500000:1000000" }
 				};
 				var productsWithPrices = new List<PriceRangeInfo>();
 				foreach (var range in priceRanges)

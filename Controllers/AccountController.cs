@@ -44,14 +44,14 @@ namespace ShoeShop.Controllers
                 var existingUserWithUpdatedUsername = await _userManager.FindByNameAsync(model.UserName);
                 if (existingUserWithUpdatedUsername != null && existingUserWithUpdatedUsername.Id != currentUser.Id)
                 {
-                    return BadRequest(new { errors = new[] { new { key = "UserName", value = "Username is already taken." } } });
+                    return BadRequest(new { errors = new[] { new { key = "UserName", value = "Tên người dùng đã được sử dụng." } } });
                 }
 
                 // Check if the updated email is unique
                 var existingUserWithUpdatedEmail = await _userManager.FindByEmailAsync(model.Email);
                 if (existingUserWithUpdatedEmail != null && existingUserWithUpdatedEmail.Id != currentUser.Id)
                 {
-                    return BadRequest(new { errors = new[] { new { key = "Email", value = "Email is already taken." } } });
+                    return BadRequest(new { errors = new[] { new { key = "Email", value = "Email  đã được sử dụng." } } });
                 }
                 currentUser.FullName = model.FullName;
                 currentUser.UserName = model.UserName;

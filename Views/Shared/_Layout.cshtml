@@ -71,17 +71,13 @@
 								</div>
 								<ul>
 									<li>
-										<a asp-controller="Home" asp-action="Index">Home</a>
+										<a asp-controller="Home" asp-action="Index">Trang Chủ</a>
 									</li>
 									<li>
-										<a asp-controller="Product" asp-action="Index">Products</a>
+										<a asp-controller="Product" asp-action="Index">Sản Phẩm</a>
 									</li>
-									<li>
-										<a asp-controller="Blog" asp-action="Index">Blog</a>
-									</li>
-									<li>
-										<a asp-controller="Contact" asp-action="Index">Contact</a>
-									</li>
+									
+							
 								</ul>
 							</div>
 							<!--/main-menu -->
@@ -93,11 +89,11 @@
                                         <a href="~/cart" class="cart_bt"><strong>0</strong></a>
                                         <div class="dropdown-menu">
                                             <ul>
-                                                There are currently no products
+                                                Hiện tại không có sản phẩm
                                             </ul>
                                             <div class="total_drop">
                                                 <div class="clearfix"><strong>Total</strong><span id="cart-total-price">$0.00</span></div>
-                                                <a href="~/cart" class="btn_1 outline">View Cart</a><a href="~/checkout" class="btn_1">Checkout</a>
+                                                <a href="~/cart" class="btn_1 outline">Xem Giỏ Hàng</a><a href="~/checkout" class="btn_1">Thanh Toán</a>
                                             </div>
                                         </div>
                                     </div>
@@ -118,19 +114,17 @@
 												</div>
 												<ul>
 													<li>
-														<a href="trackorder"><i class="ti-truck"></i>Track your Order</a>
+                                                        <a href="trackorder"><i class="ti-truck"></i>Theo dõi đơn hàng của bạn</a>
 													</li>
 													<li>
-														<a asp-controller="account" asp-action="orders"><i class="ti-package"></i>My Orders</a>
+														<a asp-controller="account" asp-action="orders"><i class="ti-package"></i>Đơn Hàng Của Tôi</a>
 													</li>
 													<li>
-														<a asp-controller="account" asp-action="profile"><i class="ti-user"></i>My Profile</a>
+														<a asp-controller="account" asp-action="profile"><i class="ti-user"></i>Thông Tin Tài Khoản</a>
 													</li>
+													
 													<li>
-														<a href="help"><i class="ti-help-alt"></i>Help and Faq</a>
-													</li>
-													<li>
-														<a asp-controller="authentication" asp-action="logout"><i class="ti-shift-left"></i>Logout</a>
+														<a asp-controller="authentication" asp-action="logout"><i class="ti-shift-left"></i>Đăng Xuất</a>
 													</li>
 												</ul>
 											</div>
@@ -139,14 +133,14 @@
 									else
 									{
 										<div class="dropdown dropdown-access">
-											<a asp-controller="authentication" asp-action="signin" class="access_link"><span>Account</span></a>
+											<a asp-controller="authentication" asp-action="signin" class="access_link"><span>Tài Khoản</span></a>
 										</div>
 									}
 
 									<!-- /dropdown-access-->
 								</li>
 								<li>
-									<a href="javascript:void(0);" class="search_panel"><span>Search</span></a>
+									<a href="javascript:void(0);" class="search_panel"><span>Tìm Kiếm</span></a>
 								</li>
 
 							</ul>
@@ -163,8 +157,8 @@
 		@RenderBody()
 		<!-- /main -->
 
-		<footer class="revealed">
-			<div class="container">
+		<footer class="revealed" style="background-color: #78bcc4;">
+			<div class="container" >
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
 						<h3 data-bs-target="#collapse_1">Liên kết nhanh</h3>
@@ -224,25 +218,7 @@
 				<hr>
 				<div class="row add_bottom_25">
 					<div class="col-lg-6">
-						<ul class="footer-selector clearfix">
-							<li>
-								<div class="styled-select lang-selector">
-									<select>
-										<option value="English" selected>Tiếng Việt</option>
-
-									</select>
-								</div>
-							</li>
-							<li>
-								<div class="styled-select currency-selector">
-									<select>
-										<option value="US Dollars" selected>VNĐ</option>
-
-									</select>
-								</div>
-							</li>
-							<li><img src="~/img/cards_all.svg" alt="" width="198" height="30" class="lazy"></li>
-						</ul>
+						
 					</div>
 					<div class="col-lg-6">
 						<ul class="additional_links">
